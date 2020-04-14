@@ -1,0 +1,470 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  </style>
+</head>
+
+<body style="padding: 20px;">
+  <h1>Last weeks PRs</h1>
+  <ul>
+    
+      <li>
+      <a href="#Explicit+Design+Props">Explicit Design Props</a>
+      </li>
+    
+      <li>
+      <a href="#Source+%400.17.0">Source @0.17.0</a>
+      </li>
+    
+      <li>
+      <a href="#Remove+Comments+and+lint+out+errors">Remove Comments and lint out errors</a>
+      </li>
+    
+      <li>
+      <a href="#Only+show+an+avatar+when+there's+one+contributor">Only show an avatar when there's one contributor</a>
+      </li>
+    
+      <li>
+      <a href="#Immersive+Byline">Immersive Byline</a>
+      </li>
+    
+      <li>
+      <a href="#Immersive+images">Immersive images</a>
+      </li>
+    
+      <li>
+      <a href="#Refactor+DecideLayout">Refactor DecideLayout</a>
+      </li>
+    
+      <li>
+      <a href="#Adjust+spacing+for+immersive+headlines">Adjust spacing for immersive headlines</a>
+      </li>
+    
+      <li>
+      <a href="#ArticleTitle+Direction">ArticleTitle Direction</a>
+      </li>
+    
+      <li>
+      <a href="#Comment+pillar+when+news">Comment pillar when news</a>
+      </li>
+    
+      <li>
+      <a href="#GuardianView+is+the+same+as+Comment">GuardianView is the same as Comment</a>
+      </li>
+    
+      <li>
+      <a href="#Fix+Showcase+Layout">Fix Showcase Layout</a>
+      </li>
+    
+      <li>
+      <a href="#ArticleBody+Refactor">ArticleBody Refactor</a>
+      </li>
+    
+      <li>
+      <a href="#Use+property+attribute+for+opengraph+meta+tags">Use property attribute for opengraph meta tags</a>
+      </li>
+    
+      <li>
+      <a href="#Display+double+MPU+for+comment+ads+slot">Display double MPU for comment ads slot</a>
+      </li>
+    
+      <li>
+      <a href="#Update+%40guardian%2Fconsent-management-platform+to+v3.0.0">Update @guardian/consent-management-platform to v3.0.0</a>
+      </li>
+    
+      <li>
+      <a href="#Set+viewed+threshold+to+18px+for+remote+epic">Set viewed threshold to 18px for remote epic</a>
+      </li>
+    
+      <li>
+      <a href="#Dynamic+imports">Dynamic imports</a>
+      </li>
+    
+      <li>
+      <a href="#Discussion+v1">Discussion v1</a>
+      </li>
+    
+      <li>
+      <a href="#Better+yarn+check">Better yarn check</a>
+      </li>
+    
+      <li>
+      <a href="#Fire+epic+view+event+with+10px+or+more+in+viewport">Fire epic view event with 10px or more in viewport</a>
+      </li>
+    
+      <li>
+      <a href="#Install+Yarn+on+version+check+fail">Install Yarn on version check fail</a>
+      </li>
+    
+      <li>
+      <a href="#TEST">TEST</a>
+      </li>
+    
+      <li>
+      <a href="#Add+high+level+diagram+in+documentation">Add high level diagram in documentation</a>
+      </li>
+    
+      <li>
+      <a href="#Send+Ophan+events+for+Epic+Reminder+clicks">Send Ophan events for Epic Reminder clicks</a>
+      </li>
+    
+  </ul>
+  
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Explicit+Design+Props>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1349">Explicit Design Props</a></h2>
+          <p>Tue, Apr 14, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>Makes the three design props explicit for each layout component</p>
+<h3 id="before">Before</h3>
+<pre><code class="typescript language-typescript">interface Props {
+    CAPI: CAPIType;
+    NAV: NavType;
+}
+</code></pre>
+<h3 id="afrer">Afrer</h3>
+<pre><code class="typescript language-typescript">interface Props {
+    CAPI: CAPIType;
+    NAV: NavType;
+    display: Display;
+    designType: DesignType;
+    pillar: Pillar;
+}
+</code></pre>
+<h2 id="why">Why?</h2>
+<p>So we're centralising these decisions in one place and in preparation for making more use of the <code>display</code> property in place of <code>designType</code></p>
+<h2 id="linktosupportingtrellocard">Link to supporting Trello card</h2>
+<p>https://trello.com/c/cIDwM4es/1436-format</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Source+%400.17.0>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1348">Source @0.17.0</a></h2>
+          <p>Tue, Apr 14, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>Adds v0.17.0 of Source</p>
+<p>https://github.com/guardian/source/releases/tag/0.17.0</p>
+<h2 id="why">Why?</h2>
+<p>For the indent svg</p>
+<h2 id="linktosupportingtrellocard">Link to supporting Trello card</h2>
+<p>https://trello.com/c/6YGAvZf6/1446-source-v0170</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Remove+Comments+and+lint+out+errors>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1347">Remove Comments and lint out errors</a></h2>
+          <p>Tue, Apr 14, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>Removes the comments imported from the <code>discussion-rendering</code> app in order to test smaller bundle sizes. </p>
+<p>The hypothesis is that running with smaller bundle size for two days will have a direct affect on web, commercial and engagement metrics for those two days. </p>
+<p>Note that this isn't an A/B test but a simpler correlation test, so not 100% scientific but should give us enough confidence if the correlation is there.</p>
+<h3 id="bundlesizebefore">Bundle size Before</h3>
+<p><img src="https://user-images.githubusercontent.com/638051/79208399-e3e6a280-7e39-11ea-9dfd-affe451f259f.png" alt="image" /></p>
+<h3 id="bundlesizeafter">Bundle size After</h3>
+<p><img src="https://user-images.githubusercontent.com/638051/79208252-be599900-7e39-11ea-9be1-54eb15fc1123.png" alt="image" /></p>
+<h4 id="note">Note</h4>
+<p>We still have the comments container:</p>
+<p><img src="https://user-images.githubusercontent.com/638051/79208886-974f9700-7e3a-11ea-9bd6-9af0cabfe751.png" alt="image" /></p>
+<p>This is ok though, as articles with comments are still on the deny-list so will not be visible to users.</p>
+<h2 id="linktosupportingtrellocard">Link to supporting Trello card</h2>
+<p>https://trello.com/c/HJpExoNk</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Only+show+an+avatar+when+there's+one+contributor>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1346">Only show an avatar when there's one contributor</a></h2>
+          <p>Mon, Apr 13, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>Prevents the author avatar from showing when there is more then one contributor to a comment piece</p>
+<h3 id="before">Before</h3>
+<p><img src="https://user-images.githubusercontent.com/1336821/79160871-6fc4e400-7dd2-11ea-8ca2-3fbc9160df40.jpg" alt="Screenshot 2020-04-13 at 21 50 47" /></p>
+<h3 id="after">After</h3>
+<p><img src="https://user-images.githubusercontent.com/1336821/79160879-72bfd480-7dd2-11ea-811b-c2e21edfbe79.jpg" alt="Screenshot 2020-04-13 at 21 57 40" /></p>
+<h2 id="why">Why?</h2>
+<p>To keep everyone happy</p>
+<h2 id="linktosupportingtrellocard">Link to supporting Trello card</h2>
+<p>https://trello.com/c/V6tV7HCn/1333-multiple-comment-contributors-hide-image</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Immersive+Byline>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1345">Immersive Byline</a></h2>
+          <p>Mon, Apr 13, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>Adds support for the byline styles seen in immersive articles</p>
+<p><img src="https://user-images.githubusercontent.com/1336821/79159404-eb716180-7dcf-11ea-8a90-db06f900004a.gif" alt="2020-04-13 21 43 53" /></p>
+<h2 id="why">Why?</h2>
+<p>Parity</p>
+<h2 id="linktosupportingtrellocard">Link to supporting Trello card</h2>
+<p>https://trello.com/c/aV3TgAo7/1440-immersive-standfirst-byline</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Immersive+images>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1344">Immersive images</a></h2>
+          <p>Mon, Apr 13, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>Adds the css for images with the <code>immersive</code> weighting</p>
+<p>Immersive images are stretched to the left and right to fill the main display column. They do not completely fill the viewport the way immersive main media does</p>
+<p><img src="https://user-images.githubusercontent.com/1336821/79158804-e19b2e80-7dce-11ea-8013-bac64ca0eb40.jpg" alt="Screenshot 2020-04-13 at 21 36 41" /></p>
+<h3 id="gutters">Gutters</h3>
+<p>On Frontend the margins are pushed an extra 20 pixels on the left and right filling the article gutters, this works for photo essays because the gutters aren't shown but looks broken for other article types. In order to allow support for immersive images over all articles the margins are cropped by 20 pixels here, preserving the gutter.</p>
+<p>If we wanted to restore that extra 20 pixels and lose the gutters then we need to solve the caption problem. This is addressed on photo essays by deleting the normal captions and showing special elements but this solution is extremely limited and inflexible.</p>
+<h2 id="why">Why?</h2>
+<p>So we support immersive articles and other artilce types that show immersive images</p>
+<h2 id="linktosupportingtrellocard">Link to supporting Trello card</h2>
+<p>https://trello.com/c/EPmYufDg/1082-immersive-in-body-images</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Refactor+DecideLayout>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1343">Refactor DecideLayout</a></h2>
+          <p>Mon, Apr 13, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>Refactors <code>DecideLayout</code> to handle both <code>designType</code> and the new <code>display</code> type</p>
+<pre><code class="typescript language-typescript">type Display = 'standard' | 'immersive' | 'showcase';
+</code></pre>
+<h2 id="why">Why?</h2>
+<p>Having a switch statement here allows us to be very explicit and will also scale well when we want to start branching for immersive layouts, showcase comment layouts, immersive comment pieces, etc.</p>
+<h2 id="nextsteps">Next steps</h2>
+<p>To remove <code>designType: Immersive</code> replacing it with <code>display: immersive</code>, adapting the various switch statements in the code.</p>
+<h2 id="linktosupportingtrellocard">Link to supporting Trello card</h2>
+<p>https://trello.com/c/cIDwM4es/1436-format</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Adjust+spacing+for+immersive+headlines>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1342">Adjust spacing for immersive headlines</a></h2>
+          <p>Mon, Apr 13, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>Fixes spacing for an immersive headline</p>
+<h3 id="before">Before</h3>
+<p><img src="https://user-images.githubusercontent.com/1336821/79110592-b682f180-7d72-11ea-9986-9d56f6327109.jpg" alt="Screenshot 2020-04-13 at 10 35 58" /></p>
+<h3 id="after">After</h3>
+<p><img src="https://user-images.githubusercontent.com/1336821/79110602-ba167880-7d72-11ea-835b-d2d41618aee4.jpg" alt="Screenshot 2020-04-13 at 10 34 31" /></p>
+<h2 id="why">Why?</h2>
+<p>Because we want to handle shorter headlines better</p>
+<h2 id="linktosupportingtrellocard">Link to supporting Trello card</h2>
+<p>https://trello.com/c/KZ7TdHwq/1439-immersive-headline-styles</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=ArticleTitle+Direction>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1341">ArticleTitle Direction</a></h2>
+          <p>Sun, Apr 12, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>This adds the logic to inline the article titles below <code>leftCol</code></p>
+<p>Note. Inlining always occurs on frontend at this breakpoint but here we add the design decision to <em>not</em> inline the items when a badge is showing on DCR because with the height of the badge present, there's no need and we may as well keep the text stacked</p>
+<p>@HarryFischer Just a heads up that we're doing this ☝️ shout if we missed something or you'd rather we didn't, happy to change this to keep parity if that's the design call.</p>
+<h3 id="beforewithbadge">Before (with badge)</h3>
+<p><img src="https://user-images.githubusercontent.com/1336821/79068160-bde7c380-7cbc-11ea-88c2-6a89abde5cd9.jpg" alt="Screenshot 2020-04-12 at 12 50 56" /></p>
+<h3 id="afterwithbadge">After (with badge)</h3>
+<p><img src="https://user-images.githubusercontent.com/1336821/79068159-bd4f2d00-7cbc-11ea-8ca6-fc5028c9c70e.jpg" alt="Screenshot 2020-04-12 at 12 50 23" /></p>
+<h3 id="beforewithoutbadge">Before (without badge)</h3>
+<p><img src="https://user-images.githubusercontent.com/1336821/79068161-be805a00-7cbc-11ea-8940-8b0e808556c8.jpg" alt="Screenshot 2020-04-12 at 12 51 08" /></p>
+<h3 id="afterwithoutbadge">After (without badge)</h3>
+<p><img src="https://user-images.githubusercontent.com/1336821/79068157-bcb69680-7cbc-11ea-9336-7d999b1c5064.jpg" alt="Screenshot 2020-04-12 at 12 49 59" /></p>
+<h2 id="why">Why?</h2>
+<p>Because at smaller screen widths we want to reduce the amount that we push content down</p>
+<h2 id="linktosupportingtrellocard">Link to supporting Trello card</h2>
+<p>https://trello.com/c/TKNUhPZP/1113-section-headers-are-inline-below-wide</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Comment+pillar+when+news>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1340">Comment pillar when news</a></h2>
+          <p>Sat, Apr 11, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>The Guardian has a design exception which means that for comment pieces where the pillar is <code>news</code>, the pillar is overriden to be <code>opinion</code> instead</p>
+<h2 id="why">Why?</h2>
+<p>This is a good question. I think it looks a bit better but I can't say for sure if that's why we do it. But we do.</p>
+<h2 id="linktosupportingtrellocard">Link to supporting Trello card</h2>
+<p>https://trello.com/c/3VIG5Wl2/1357-incorrect-tone-styling-being-applied-for-news-opinion-pieces</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=GuardianView+is+the+same+as+Comment>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1339">GuardianView is the same as Comment</a></h2>
+          <p>Sat, Apr 11, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>Treat <code>GuardianView</code> pieces the same as <code>Comment</code></p>
+<h2 id="why">Why?</h2>
+<p>Because it turns out they are</p>
+<h2 id="linktosupportingtrellocard">Link to supporting Trello card</h2>
+<p>https://trello.com/c/qTwTHEOe/1359-guardian-editorial-pieces-should-take-on-the-opinion-styling</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Fix+Showcase+Layout>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1338">Fix Showcase Layout</a></h2>
+          <p>Sat, Apr 11, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>Break out into showcase earlier, after leftCol, not wide.</p>
+<p>The previous breakpoint that the main media element broke out into showcase was <code>wide</code> but on frontend this is <code>leftCol</code> so this PR aligns these properly</p>
+<h3 id="before">Before</h3>
+<p><img src="https://user-images.githubusercontent.com/1336821/79041310-b655eb00-7be6-11ea-88d2-87b0b3bec760.gif" alt="2020-04-11 11 22 02" /></p>
+<h3 id="after">After</h3>
+<p><img src="https://user-images.githubusercontent.com/1336821/79041273-65de8d80-7be6-11ea-99c8-3db8ab57cd4a.gif" alt="2020-04-11 11 19 27" /></p>
+<h2 id="why">Why?</h2>
+<p>For parity</p>
+<h2 id="linktosupportingtrellocard">Link to supporting Trello card</h2>
+<p>https://trello.com/c/b04p3ubp/1444-fix-showcase-layout</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=ArticleBody+Refactor>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1337">ArticleBody Refactor</a></h2>
+          <p>Sat, Apr 11, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>Makes the props for <code>ArticleBody</code> explicit, instead of passing in the whole<code>CAPI</code> object</p>
+<h2 id="why">Why?</h2>
+<p>Ro make it clear what props are required by this component and so that the layout file is the only place where CAPI is destrutured, making it easy to see what goes where</p>
+<h2 id="linktosupportingtrellocard">Link to supporting Trello card</h2>
+<p>https://trello.com/c/oXy53OQ5/1433-refactor-articlebody</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Use+property+attribute+for+opengraph+meta+tags>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1336">Use property attribute for opengraph meta tags</a></h2>
+          <p>Thu, Apr 09, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>Uses the <code>property</code> attribute in meta tags for opengraph specifically. We believe that is why echobox is using the page title instead of the <code>og:title</code> when rendering previews. The facebook opengraph debugger specifically flags that we are not using the property attribute:</p>
+<p><img src="https://user-images.githubusercontent.com/8754692/78891287-2f2a3b00-7a5f-11ea-9e34-56cfc2c82ad6.png" alt="image" /></p>
+<p>For extra confidence, this will also match the behaviour of frontend - which has never had these problems.</p>
+<h2 id="why">Why?</h2>
+<p>Fixes social shares, particularly ones that rely on opengraph - like hangout chat (see trello card), facebook (see screenshot above) or echobox.</p>
+<h2 id="linktosupportingtrellocard">Link to supporting Trello card</h2>
+<p>https://trello.com/c/lGkJLv2E/730-implement-open-graph-in-dotcom-rendering-correctly</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Display+double+MPU+for+comment+ads+slot>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1335">Display double MPU for comment ads slot</a></h2>
+          <p>Thu, Apr 09, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>Modify the available sizes for the comment ad slot to only display double MPUs </p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Update+%40guardian%2Fconsent-management-platform+to+v3.0.0>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1334">Update @guardian/consent-management-platform to v3.0.0</a></h2>
+          <p>Thu, Apr 09, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>This PR updates the <code>@guardian/consent-management-platform</code> dependency to v3.0.0. This updated dependency no longer has the <code>@guardian/src-button</code>, <code>@guardian/src-foundations</code>, <code>@guardian/src-svgs</code> dependencies bundled as part of the CMP component as they have been moved into the <code>peerDependencies</code>, this requires the consumer (dotcom-rendering in this case) to use these dependencies.</p>
+<p>Further details can be found at: https://github.com/guardian/consent-management-platform/pull/74</p>
+<h2 id="why">Why?</h2>
+<p>This leads to a reduction in bundle-size for DCR of ~10kb uncompressed and ~3kb compressed</p>
+<h2 id="linktosupportingtrellocard">Link to supporting Trello card</h2>
+<p>https://trello.com/c/SbilpiAg/723-cmp-move-src-dependencies-into-peerdependencies-in-https-githubcom-guardian-consent-management-platform</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Set+viewed+threshold+to+18px+for+remote+epic>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1333">Set viewed threshold to 18px for remote epic</a></h2>
+          <p>Thu, Apr 09, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>Set viewed threshold to 18px into the component (previously 10px).</p>
+<h2 id="why">Why?</h2>
+<p>I misread the Frontend value here. It's actually 18:</p>
+<p>https://github.com/guardian/frontend/blob/master/static/src/javascripts/projects/common/modules/commercial/contributions-utilities.js#L276</p>
+<h2 id="linktosupportingtrellocard">Link to supporting Trello card</h2>
+<p>n/a</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Dynamic+imports>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1332">Dynamic imports</a></h2>
+          <p>Wed, Apr 08, 2020<p>
+          <h2 id="todo">TODO:</h2>
+<ul>
+<li>Fix <code>document.tsx</code> unit tests</li>
+<li>Test that older browsers pull legacy version of the component </li>
+</ul>
+<h2 id="whatdoesthischange">What does this change?</h2>
+<p>This is a proof of concept using <code>loadable-components</code> to implement dynamic imports.</p>
+<p>We have 2 types of dynamic imports present: Server Side, Client Side
+~<em>Server Side</em>: <code>StandardLayout</code> is dynamically loaded <code>src/web/layouts/DecideLayout.tsx</code>~
+<em>Client Side</em>: <code>CommentsLayout</code> is dynamically loaded in <code>src/web/components/App.tsx</code></p>
+<p>Both implement <code>@loadable/component</code> to dynamically import the component</p>
+<h2 id="why">Why?</h2>
+<p>We can now split out Components individually. This has 2 main benefits:</p>
+<ul>
+<li>reduces the bundles size into smaller chucks that can be loaded in parallel</li>
+<li>allow us to remove unused components from the bundle (ex: some articles do not support comments so we can remove the Comment component out of the bundle)</li>
+</ul>
+<h2 id="demo">Demo</h2>
+<p>This example will be using <code>make dev</code>, We will be using an example that has Comments enabled: https://www.theguardian.com/music/2018/aug/31/eminem-kamikaze-album-review</p>
+<p>Scroll down to the comment section and you can now see in the network tab a call to <code>http://localhost:3030/assets/CommentsLayout.js</code> (The Client side dynamic import worked!)</p>
+<h2 id="linktosupportingtrellocard">Link to supporting Trello card</h2>
+<p>https://trello.com/c/0qCpwbbO/1285-dynamic-imports</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Discussion+v1>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1331">Discussion v1</a></h2>
+          <p>Wed, Apr 08, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>Adds @guardian/discussion-rendering@1.0.0</p>
+<h2 id="why">Why?</h2>
+<p>Ready for internal testing</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Better+yarn+check>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1330">Better yarn check</a></h2>
+          <p>Wed, Apr 08, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>further to breaking yarn check in #1322 and @gtrufitt fixing in #1328, this tidies up yarn checking further:</p>
+<ul>
+<li><p><code>v1.0.0</code> <a href="https://github.com/yarnpkg/yarn/releases/tag/v1.0.0">introduced support for <code>yarn-path</code> in <code>.yarnrc</code></a> which is all we need, so this now just checks for that version as a minimum</p></li>
+<li><p>very early versions of yarn didn't support the <code>-v</code> shorthand flag, now uses <code>--version</code></p></li>
+<li><p>installs <code>1.x</code> if it's not present since that will get latest security updates etc while still using the <code>yarn-path</code> version to manage packages</p></li>
+<li><p>doesn't update the catch mechanism, because <code>promisify</code>d functions no longer return errors but <code>catch()</code> if used as a promise or <code>throw</code> in <code>await</code>s</p></li>
+</ul>
+<h2 id="why">Why?</h2>
+<p>will hopefully break stuff less than it would have</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Fire+epic+view+event+with+10px+or+more+in+viewport>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1329">Fire epic view event with 10px or more in viewport</a></h2>
+          <p>Wed, Apr 08, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>This is what Frontend does at the moment, rather than the 50% in view that DCR previously used.</p>
+<h2 id="why">Why?</h2>
+<p>Have noticed a discrepancy in our stats for views - DCR is lower even though it has higher insert events which didn't really make any sense.</p>
+<p>(First image is when DCR fires off event before this change, second is when Frontend currently does and how DCR should behave.)</p>
+<p><img width="334" alt="Screenshot 2020-04-08 at 14 46 17" src="https://user-images.githubusercontent.com/858402/78792648-4e669100-79a9-11ea-98db-8e7555852cba.png"></p>
+<p>and (Frontend): </p>
+<p><img width="334" alt="Screenshot 2020-04-08 at 14 47 40" src="https://user-images.githubusercontent.com/858402/78792654-51618180-79a9-11ea-85b0-5ad5b14ff9f6.png"></p>
+<h2 id="linktosupportingtrellocard">Link to supporting Trello card</h2>
+<p>https://trello.com/c/fqvfyIbv/106-investigate-dcr-default-test-tableau-issues</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Install+Yarn+on+version+check+fail>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1328">Install Yarn on version check fail</a></h2>
+          <p>Wed, Apr 08, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>Calling <code>Yarn</code> when it doesn't exists throws, so we need to install Yarn in the catch of the <code>try, catch</code>.</p>
+<h2 id="why">Why?</h2>
+<p>Builds were broken, this may not be the correct longer term solution but will fix in short term.</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=TEST>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1327">TEST</a></h2>
+          <p>Wed, Apr 08, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<h2 id="why">Why?</h2>
+<h2 id="linktosupportingtrellocard">Link to supporting Trello card</h2>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Add+high+level+diagram+in+documentation>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1326">Add high level diagram in documentation</a></h2>
+          <p>Tue, Apr 07, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>Add a high level diagram in the documentation for clarity.</p>
+        </div>
+    
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id=Send+Ophan+events+for+Epic+Reminder+clicks>
+          <h2><a href="https://github.com/guardian/dotcom-rendering/pull/1325">Send Ophan events for Epic Reminder clicks</a></h2>
+          <p>Tue, Apr 07, 2020<p>
+          <h2 id="whatdoesthischange">What does this change?</h2>
+<p>Adds Ophan tracking support for Epic Reminder clicks. For parity with Frontend, we send two CLICK events when the user clicks the "Remind me later" button in the Epic. One tracks the action itself (user has clicked) and the other, separate one, tracks the button copy (e.g. "Remind me in July").</p>
+<h2 id="why">Why?</h2>
+<p>Parity with Frontend.</p>
+        </div>
+    
+  <link rel="stylesheet" href="reset.css">
+
+</body>
+</html>

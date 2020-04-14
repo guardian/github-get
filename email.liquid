@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  </style>
+</head>
+
+<body style="padding: 20px;">
+  <h1>Last weeks PRs</h1>
+  <ul>
+    {% for pr in prs %}
+      <li>
+      <a href="#{{ pr.title | url_encode }}">{{pr.title}}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  
+    {% for pr in prs %}
+        <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id={{ pr.title | url_encode}}>
+          <h2><a href="{{pr.url}}">{{ pr.title }}</a></h2>
+          <p>{{pr.created  | date: "%a, %b %d, %Y" }}<p>
+          {{ pr.body }}
+        </div>
+    {% endfor %}
+  <link rel="stylesheet" href="reset.css">
+
+</body>
+</html>
