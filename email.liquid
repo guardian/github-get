@@ -19,14 +19,14 @@
   <ul>
     {% for pr in prs %}
       <li>
-      <a href="#{{ pr.title | url_encode }}">{{pr.title}}</a>
+      <a href="#{{ pr.title | url_encode }}">{{pr.title}}</a> <span style="font-size: 0.7em">({{pr.repoName}})<span>
       </li>
     {% endfor %}
   </ul>
   
     {% for pr in prs %}
         <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id={{ pr.title | url_encode}}>
-          <h2><a href="{{pr.url}}">{{ pr.title }}</a></h2>
+          <h2><a href="{{pr.url}}">{{ pr.title }}</a> <span style="font-size: 0.7em">({{pr.repoName}})<span></h2>
           <p>{{pr.created  | date: "%a, %b %d, %Y" }}<p>
           {{ pr.body }}
         </div>
