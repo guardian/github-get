@@ -30,6 +30,7 @@ const getDescriptions = json =>
     json.map(pr => ({
         body: converter.makeHtml(pr.body),
         created: pr.created_at,
+        merged: pr.merged_at,
         title: pr.title,
         url: pr.html_url,
         repoName: pr.head.repo.name
@@ -41,6 +42,7 @@ engine
 
 module.exports = (duration, repoNames) => {
     Promise.all(repoNames.map(val => fetch(`https://api.github.com/repos/guardian/${val}/pulls?state=all`).then(res => res.json())))
+    .then(res => {console.log(res); return res;})
     .then(res => res.reduce((prev, current) => prev.concat(current))) // Take all (json converted) response and combine them into one array 
     .then(json => filterByDate(json, duration))
     .then(getDescriptions)

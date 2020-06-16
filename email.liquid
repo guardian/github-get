@@ -19,7 +19,7 @@
   <ul>
     {% for pr in prs %}
       <li>
-      <a href="#{{ pr.title | url_encode }}">{{pr.title}}</a> <span style="font-size: 0.7em">({{pr.repoName}})<span>
+      <a href="#{{ pr.title | url_encode }}">{{pr.title}}</a> <span style="font-size: 0.7em">({{pr.repoName}}, merged on {{pr.merged | date: "%a, %b %d, %Y, %H:%m"}})<span>
       </li>
     {% endfor %}
   </ul>
