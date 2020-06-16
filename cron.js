@@ -2,7 +2,7 @@
 const run = require('./index');
 
 const cron = require('node-cron');
-const repoNames = ['dotcom-rendering', 'discussion-rendering', 'frontend'];
+const repoNames = ['dotcom-rendering', 'discussion-rendering', 'frontend', 'ab-rendering', 'atoms-rendering'];
  
 console.log('Scheduling');
 run(7, repoNames);
