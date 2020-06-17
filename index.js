@@ -15,7 +15,8 @@ var engine = new Liquid({
 });
 
 const filterByDate = (json, duration) => {
-    console.log(json)
+    // console.log(json)
+    console.log(`Filter by ${duration} day`)
    return json.filter(pr => {
         const date = new Date(pr.created_at)
         const dateNow = new Date();
@@ -42,12 +43,12 @@ engine
 
 module.exports = (duration, repoNames) => {
     Promise.all(repoNames.map(val => fetch(`https://api.github.com/repos/guardian/${val}/pulls?state=all`).then(res => res.json())))
-    .then(res => {console.log(res); return res;})
+    // .then(res => {console.log(res); return res;})
     .then(res => res.reduce((prev, current) => prev.concat(current))) // Take all (json converted) response and combine them into one array 
     .then(json => filterByDate(json, duration))
     .then(getDescriptions)
-    .then(json => ({ prs: json })) // convert to use in liquid
-    .then(json => { console.log(json); return json}) // Just log
+    .then(json => ({ prs: json, repoNames })) // convert to use in liquid
+    // .then(json => { console.log(json); return json}) // Just log
     .then(generateHtml) // pass to liquid template
     .then(html => fs.writeFile('email.html', html, e => console.log))
     .then(() => open('email.html'))
