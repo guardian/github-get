@@ -3,24 +3,37 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="reset.css">
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+          font-family: -apple-system, BlinkMacSystemFont, Helvetica,Arial,sans-serif;
     }
 
     img {
       max-width: 100%;
     }
+
+  a:visited {
+      color: #444;
+  }
+
+  a:link {
+      color: #444;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
   </style>
 </head>
 
 <body style="padding: 20px;">
   <h1>Last weeks PRs</h1>
-  <p>from {{repoNames}}</p>
+  <p>Gathered from {% for repo in repoNames %}{{repo}}{% if repo != repoNames.last %}, {%endif%}{% endfor %}</p>
   <ul>
     {% for pr in prs %}
       <li>
-      <a href="#{{ pr.title | url_encode }}">{{pr.title}}</a> <span style="font-size: 0.7em">({{pr.repoName}}, merged on {{pr.merged | date: "%a, %b %d, %Y, %H:%m"}})<span>
+      <a class="bold" href="#{{ pr.title | url_encode }}">{{pr.title}}</a> <a href="{{ pr.url }}"><small>◎</small></a> <span style="font-size: 0.7em">({{pr.repoName}}{% if pr.merged %}, merged on {{pr.merged | date: "%a, %b %d, %Y, %H:%m"}}{% endif %})<span>
       </li>
     {% endfor %}
   </ul>
@@ -28,11 +41,11 @@
     {% for pr in prs %}
         <div style="padding: 10px; border: 1px solid #ccc; background-color: #f6f6f6; margin-bottom: 20px; max-width: 1024px;" id={{ pr.title | url_encode}}>
           <h2><a href="{{pr.url}}">{{ pr.title }}</a> <span style="font-size: 0.7em">({{pr.repoName}})<span></h2>
-          <p>{{pr.created  | date: "%a, %b %d, %Y" }}<p>
+          <p>Created on {{pr.created  | date: "%a, %b %d, %Y" }}<p>
+          {% if pr.merged %}<p>Merged on {{pr.merged | date: "%a, %b %d, %Y, %H:%m"}}</p>{% endif %}
           {{ pr.body }}
         </div>
     {% endfor %}
-  <link rel="stylesheet" href="reset.css">
 
 </body>
 </html>
