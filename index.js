@@ -41,13 +41,14 @@ const generateHtml = json =>
 engine
     .renderFile("email", json)
 
+    // Github fetch is unauthenticated so cannot access private repos and is rate-limited to 60 requests an hour
 module.exports = (duration, repoNames) => {
     Promise.all(repoNames.map(val => fetch(`https://api.github.com/repos/guardian/${val}/pulls?state=all`).then(res => res.json())))
     // .then(res => {console.log(res); return res;})
     .then(res => res.reduce((prev, current) => prev.concat(current))) // Take all (json converted) response and combine them into one array 
     .then(json => filterByDate(json, duration))
     .then(getDescriptions)
-    .then(json => ({ prs: json, repoNames })) // convert to use in liquid
+    .then(json => ({ prs: json, repoNames, duration })) // convert to use in liquid
     // .then(json => { console.log(json); return json}) // Just log
     .then(generateHtml) // pass to liquid template
     .then(html => fs.writeFile('email.html', html, e => console.log))

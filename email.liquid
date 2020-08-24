@@ -28,7 +28,7 @@
 </head>
 
 <body style="padding: 20px;">
-  <h1>Last weeks PRs</h1>
+  <h1>PRs from the last {% if duration == 1 %}day{% else %}{{duration}} days{% endif %}</h1>
   <p>Gathered from {% for repo in repoNames %}{{repo}}{% if repo != repoNames.last %}, {%endif%}{% endfor %}</p>
   <ul>
     {% for pr in prs %}
